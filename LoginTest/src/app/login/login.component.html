@@ -1,0 +1,29 @@
+
+<h1> Login</h1>
+
+<form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+
+    <p [ngClass]="{ 'has-error':  formControls?.['email']?.invalid }">
+        <input type="email" placeholder="Email" formControlName="email">
+      </p>
+
+    <div *ngIf="formControls?.['email']?.touched" class="help-block">
+        <div *ngIf="formControls?.['email']?.errors?.['required']">Email is required</div>
+        <div *ngIf="formControls?.['email']?.invalid">Email is invalid</div>
+
+    </div>
+    <p [ngClass]="{ 'has-error': formControls?.['password']?.errors }" >
+    <input  type="password" placeholder="Password" formControlName="password"/>
+    </p>
+  
+<div  *ngIf="(formControls?.['password']?.touched)" class="help-block">
+    <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</div>
+    <div *ngIf="formControls?.['password']?.errors?.['pattern']">Password has to contains minimum eight characters, at least one letter and one number</div>
+</div>
+ 
+<div>
+    <input type="submit" [disabled]="!loginForm.valid" value="Log in"/>
+   <span *ngIf="loadData">loading...</span>
+</div>
+</form>
+    
