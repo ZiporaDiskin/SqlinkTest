@@ -8,7 +8,7 @@ using Test.Models;
 
 namespace Test.Controllers.ApiControllers
 {
-    [Route("api/data")]
+    [Route("api")]
     [ApiController]
     public class DataController : ControllerBase
     {

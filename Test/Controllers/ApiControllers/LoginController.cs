@@ -11,7 +11,7 @@ using Test.WebModels;
 namespace Test.Controllers.ApiControllers
 {
     [ApiController]
-    [Route("api/login")]
+    [Route("api")]
     public class LoginController : Controller
     {
         private readonly IConfiguration _configuration;
