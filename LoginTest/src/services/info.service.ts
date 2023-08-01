@@ -12,11 +12,11 @@ export class InfoService {
   token!:any
   public getInfo(): Observable<any> {
 
-    var apiUrl="https://private-052d6-testapi4528.apiary-mock.com/info"
-   // var apiUrl="https://localhost:44390/api/info/getProjects"
+   // var apiUrl="https://private-052d6-testapi4528.apiary-mock.com/info"
+    var apiUrl="https://localhost:44390/api/info/getProjects"
     this.token=this.authService.getToken()
  
-   // const headers = new HttpHeaders({ 'Bearer': this.token });  
+   
       return this.http.get<Project[]>(apiUrl).pipe(
      
       map((response:Project[]) => {

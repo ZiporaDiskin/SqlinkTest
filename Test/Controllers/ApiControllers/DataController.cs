@@ -8,12 +8,12 @@ using Test.Models;
 
 namespace Test.Controllers.ApiControllers
 {
-    [Route("api/info")]
+    [Route("api/data")]
     [ApiController]
-    public class InfoController : ControllerBase
+    public class DataController : ControllerBase
     {
         private readonly CompanyContext _companyContext;
-        public InfoController(CompanyContext comppanyContext)
+        public DataController(CompanyContext comppanyContext)
         {
             _companyContext = comppanyContext;
         }
@@ -24,9 +24,9 @@ namespace Test.Controllers.ApiControllers
         /// <returns></returns>
         [HttpGet]
         [IgnoreAntiforgeryToken]
-        [Route("getProjects")]
+        [Route("info")]
         [Authorize]
-        public IActionResult GetProjects()
+        public IActionResult Info()
         {
            
             var currentUser = HttpContext.User;

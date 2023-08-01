@@ -34,13 +34,13 @@ export function tokenGetter() {
   ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    // JwtModule.forRoot({
-    //   config: {
-    //     tokenGetter: tokenGetter,
-    //     allowedDomains: ["localhost:44390"],
-    //     disallowedRoutes: []
-    //   }
-    // })
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:44390"],
+        disallowedRoutes: []
+      }
+    })
   ],
   
 

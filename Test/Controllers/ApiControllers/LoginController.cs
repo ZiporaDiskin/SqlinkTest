@@ -11,13 +11,13 @@ using Test.WebModels;
 namespace Test.Controllers.ApiControllers
 {
     [ApiController]
-    [Route("api/authenticate")]
-    public class AuthenticateController : Controller
+    [Route("api/login")]
+    public class LoginController : Controller
     {
         private readonly IConfiguration _configuration;
         private readonly CompanyContext _companyContext;
 
-        public AuthenticateController(IConfiguration configuration, CompanyContext companyContext)
+        public LoginController(IConfiguration configuration, CompanyContext companyContext)
         {
             _configuration = configuration;
             _companyContext = companyContext;
@@ -29,8 +29,8 @@ namespace Test.Controllers.ApiControllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        [Route("login")]
-        public IActionResult Login([FromBody] User login)
+        [Route("authenticate")]
+        public IActionResult Authenticate([FromBody] User login)
         {
             IActionResult response = Unauthorized();
             var user = AuthenticateUser(login);
@@ -38,7 +38,7 @@ namespace Test.Controllers.ApiControllers
             if (user != null)
             {
                 var tokenString = GenerateJSONWebToken(user);
-                response = Ok(new { Token = tokenString, PersonalDetails = user });
+                response = Ok(new { Token = tokenString, PersonalDetails = user  });
             }
 
             return response;
